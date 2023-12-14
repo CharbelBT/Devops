@@ -14,7 +14,6 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Installer pandas et numpy
-    - name: executer un code python qui importe pandas et print('pandas dispo')
+
 
 
