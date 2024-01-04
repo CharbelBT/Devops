@@ -3,7 +3,24 @@ name: Python Application Workflow
 on: [push]
 
 jobs:
-  build-and-test:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+        
+    - name: Install scikit-learn
+      run: pip install -r requirements.txt
+      
+    - name: Execute bcancer.py
+      run: python bcancer.py
+
+  job2:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,8 +31,5 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: executer bcancer.py
-      run: python bcancer.py
-
-    - name: executer test.py  
+    - name: Execute test.py
       run: python test.py
