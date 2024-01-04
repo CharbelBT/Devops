@@ -4,7 +4,7 @@ import pickle
 from sklearn.metrics import accuracy_score
 
 # Charger le modèle
-with open('modele_bcancer.pkl', 'rb') as model_file:
+with open('model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
 # Charger ou préparer les données de test
