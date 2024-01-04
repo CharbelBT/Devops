@@ -32,5 +32,8 @@ jobs:
       with:
         python-version: '3.8'
 
+    - name: Install scikit-learn
+      run: pip install -r requirements.txt
+
     - name: Execute test.py
       run: python test.py
