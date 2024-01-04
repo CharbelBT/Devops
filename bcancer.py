@@ -1,4 +1,3 @@
-# Importer les bibliothèques nécessaires
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -17,16 +16,16 @@ y = pd.Series(data.target)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Créer et entraîner le modèle de régression logistique
-model = LogisticRegression()
+model = LogisticRegression(max_iter=10000)
 model.fit(X_train, y_train)
 
 # Évaluer le modèle
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
-print(f"Précision du modèle : {accuracy * 100:.2f}%")
+print(f"Précision du modèle : {accuracy:.2f}")
 
-# Sauvegarder le modèle entraîné au format pickle
-with open('modele_bcancer.pkl', 'wb') as model_file:
-    pickle.dump(model, model_file)
+# Sauvegarder le modèle entraîné
+with open('model.pkl', 'wb') as file:
+    pickle.dump(model, file)
 
-print("Modèle sauvegardé avec succès.")
+print("Modèle entraîné et sauvegardé.")
